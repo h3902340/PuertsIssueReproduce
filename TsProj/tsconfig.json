@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "jsx": "react",
+    "sourceMap": false,
+    "typeRoots": [
+      "../Assets/Puerts/Typing",
+      "../Assets/Gen/Typing",
+      "./node_modules/@types"
+    ],
+    "rootDir": "src",
+    "outDir": "output"
+  }
+}

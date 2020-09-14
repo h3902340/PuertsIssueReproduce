@@ -1,0 +1,10 @@
+{
+  "name": "tsproj",
+  "version": "1.0.0",
+  "description": "ts project",
+  "scripts": {
+    "prebuild": "rm -r output/*",
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "./postbuild.sh"
+  }
+}
