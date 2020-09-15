@@ -12,6 +12,7 @@ namespace PuertsTest
     {
         public string ModuleName;//可配置加载的js模块
 
+        public Action JsAwake;
         public Action JsStart;
         public Action JsUpdate;
         public Action JsOnDestroy;
@@ -25,6 +26,8 @@ namespace PuertsTest
             var init = jsEnv.Eval<ModuleInit>("const m = require('" + ModuleName + "'); m.init;");
 
             init?.Invoke(this);
+            
+            JsAwake?.Invoke();
         }
 
         private void Start()

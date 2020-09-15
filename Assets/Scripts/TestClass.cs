@@ -1,4 +1,5 @@
-﻿using PuertsTest;
+﻿using System;
+using PuertsTest;
 using UnityEngine;
 
 public class TestClass : MonoBehaviour
@@ -9,7 +10,12 @@ public class TestClass : MonoBehaviour
     {
         Instance = this;
     }
-    
+
+    private void Start()
+    {
+        GetMessage();
+    }
+
     public void GetMessage()
     {
         JsBehaviour.jsEnv.Eval($"require('{module}')");

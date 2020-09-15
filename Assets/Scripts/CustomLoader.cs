@@ -10,24 +10,24 @@ public class CustomLoader : ILoader
     {
         var textAsset = Resources.Load<TextAsset>(filepath);
         var parts = filepath.Split('/');
-        filepath = parts[parts.Length - 1];
-        var found = Downloader.JsDictionary.ContainsKey(filepath);
-        Debug.Log($"Try to load {filepath} by Addressbles, result: {found}");
+        string filepathModified = parts[parts.Length - 1];
+        var found = Downloader.JsDictionary.ContainsKey(filepathModified);
+        Debug.Log($"Original name: {filepath}, Try to load {filepathModified} by Addressbles, result: {found}");
         if (found) return true;
-        Debug.Log($"Try to load {filepath} by Resources, result: {textAsset != null}");
+        Debug.Log($"Original name: {filepath}, Try to load {filepathModified} by Resources, result: {textAsset != null}");
         if (textAsset == null) return false;
-        if (!Downloader.JsDictionary.ContainsKey(filepath))
+        if (!Downloader.JsDictionary.ContainsKey(filepathModified))
         {
-            Downloader.JsDictionary.Add(filepath,textAsset.text);
+            Downloader.JsDictionary.Add(filepathModified,textAsset.text);
         }
         return true;
     }
 
     public string ReadFile(string filepath, out string debugpath)
     {
+        debugpath = filepath;
         string[] parts = filepath.Split('/');
         filepath = parts[parts.Length - 1];
-        debugpath = filepath;
         return Downloader.JsDictionary[filepath];
     }
 }

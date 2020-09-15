@@ -308,6 +308,7 @@ declare module 'csharp' {
     namespace PuertsTest {
         class JsBehaviour extends UnityEngine.MonoBehaviour {
             public ModuleName: string;
+            public JsAwake: System.Action;
             public JsStart: System.Action;
             public JsUpdate: System.Action;
             public JsOnDestroy: System.Action;
