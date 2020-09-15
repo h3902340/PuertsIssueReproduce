@@ -18,28 +18,28 @@ namespace PuertsTest
 
         public static JsEnv jsEnv;
 
-        void Awake()
+        private void Awake()
         {
-            if (jsEnv == null) jsEnv = new JsEnv();
+            if (jsEnv == null) jsEnv = new JsEnv(new CustomLoader());
 
             var init = jsEnv.Eval<ModuleInit>("const m = require('" + ModuleName + "'); m.init;");
 
-            if (init != null) init(this);
+            init?.Invoke(this);
         }
 
-        void Start()
+        private void Start()
         {
-            if (JsStart != null) JsStart();
+            JsStart?.Invoke();
         }
 
-        void Update()
+        private void Update()
         {
-            if (JsUpdate != null) JsUpdate();
+            JsUpdate?.Invoke();
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
-            if (JsOnDestroy != null) JsOnDestroy();
+            JsOnDestroy?.Invoke();
             JsStart = null;
             JsUpdate = null;
             JsOnDestroy = null;

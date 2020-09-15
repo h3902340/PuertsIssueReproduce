@@ -1,3 +1,3 @@
-rm -r ../Assets/Scripts/Resources/*
-cp -r output/* ../Assets/Scripts/Resources
-find ../Assets/Scripts/Resources -name "*.js" -exec rename 's/\.js$/.js.txt/' '{}' +
+rm -r ../Assets/Scripts/JavaScripts/*
+cp -r output/* ../Assets/Scripts/JavaScripts
+find ../Assets/Scripts/JavaScripts -name "*.js" -exec rename 's/\.js$/.js.txt/' '{}' +

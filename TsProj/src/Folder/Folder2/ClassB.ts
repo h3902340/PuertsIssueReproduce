@@ -1,3 +1,3 @@
-import {ClassA} from "../ClassA";
+import {ClassA} from "../../ClassA";
 
 console.log(ClassA.Instance.MyName);
