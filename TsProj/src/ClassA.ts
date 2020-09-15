@@ -1,4 +1,4 @@
-import {PuertsTest, TestClass} from "csharp";
+import {PuertsTest} from "csharp";
 
 export class ClassA{
     bindTo:PuertsTest.JsBehaviour;
